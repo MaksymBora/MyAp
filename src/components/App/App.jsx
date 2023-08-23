@@ -1,4 +1,4 @@
-export const WeatherApp = () => {
+export const App = () => {
   return (
     <div
       style={{
