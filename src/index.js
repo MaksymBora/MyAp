@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { GlobalStyle } from './GlobalStyle';
-import { App } from 'components/App/App';
-import { NewsApp } from 'components/News/NewsApp';
+import { WeatherApp } from 'components/WeatherApp/WeatherApp';
+import { NewsApp } from 'components/NewsApp/NewsApp.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <GlobalStyle />
-    <App />
+    <WeatherApp />
     <NewsApp />
   </React.StrictMode>
 );
