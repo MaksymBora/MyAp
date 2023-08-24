@@ -79,7 +79,7 @@ export const Header = () => {
     
     <div>
       {/* <SearchBar onSubmit={ handleSubmit} /> */}
-      <WeatherCard items={ weatherProps } />
+      {!position ? <p>Loading...</p> : <WeatherCard items={ weatherProps } />}
     </div>
   );
 };
