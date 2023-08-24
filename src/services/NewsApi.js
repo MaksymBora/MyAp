@@ -6,13 +6,16 @@ const API_KEY = '8be01aea27c0ace063a75957dc708c6b';
 export async function getNews() {
   const keywords = [
     'IT',
+    'money',
     'Ukraine',
     'technology',
-    'car',
+    'cars',
     'sport',
     'business',
     'science',
     'future',
+    'sex',
+    'climate',
   ];
   const queryString = keywords.join(' OR ');
 
