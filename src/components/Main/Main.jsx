@@ -1,7 +1,9 @@
+import { NewsBlock } from './News/News';
+
 export const Main = () => {
   return (
     <div>
-      <h2>Main</h2>
+      <NewsBlock />
     </div>
   );
 };
