@@ -1,9 +1,7 @@
-import { News } from './News/News';
-
 export const Main = () => {
   return (
     <div>
-      <News />
+      <h2>Main</h2>
     </div>
   );
 };
