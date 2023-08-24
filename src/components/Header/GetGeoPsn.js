@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 
 export function usePosition() {
   const [position, setPosition] = useState(null);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
+    let defaultPosition = null;
+
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(
         currentPosition => {
@@ -12,13 +13,27 @@ export function usePosition() {
           setPosition({ latitude, longitude });
         },
         geolocationError => {
-          setError(geolocationError);
+          const defaultLatitude = 50.417;
+          const defaultLongitude = 30.517;
+          setPosition({
+            latitude: defaultLatitude,
+            longitude: defaultLongitude,
+          });
         }
       );
     } else {
-      setError(new Error('Geolocation is not available in this browser.'));
+      const defaultLatitude = 50.417;
+      const defaultLongitude = 30.517;
+      defaultPosition = {
+        latitude: defaultLatitude,
+        longitude: defaultLongitude,
+      };
+    }
+
+    if (defaultPosition) {
+      setPosition(defaultPosition);
     }
   }, []);
 
-  return { position, error };
+  return { position };
 }
