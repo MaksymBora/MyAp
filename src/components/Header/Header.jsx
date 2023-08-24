@@ -1,4 +1,4 @@
-import { SearchBar } from "./SearchBar/SearchBar";
+// import { SearchBar } from "./SearchBar/SearchBar";
 import { WeatherCard } from "./SearchBar/WeatherCard/WeatherCard";
 import { fetchWeather } from "services/WeatherApi";
 import { usePosition } from './GetGeoPsn'
@@ -56,13 +56,13 @@ export const Header = () => {
 
   }, [ city, temperature, tempFeelsLike, tempMax, tempMin, weatherState, error, position]);
   
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    // setQuery(e.target.elements.query.value);
+  //   // setQuery(e.target.elements.query.value);
 
-    e.target.reset();
-  };
+  //   e.target.reset();
+  // };
 
  const weatherProps = {
     city,
@@ -78,7 +78,7 @@ export const Header = () => {
   return (
     
     <div>
-      <SearchBar onSubmit={ handleSubmit} />
+      {/* <SearchBar onSubmit={ handleSubmit} /> */}
       <WeatherCard items={ weatherProps } />
     </div>
   );
