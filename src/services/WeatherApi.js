@@ -9,7 +9,7 @@ export const fetchWeather = async (lat, lon) => {
     const response = await axios.get('', {
       params: {
         appid: API_KEY,
-        // q: query,
+        // q: 'Kyiv',
         lang: 'en',
         units: 'metric',
         lat: lat,
