@@ -13,7 +13,6 @@ export async function getNews() {
     'sport',
     'business',
     'science',
-    'future',
     'sex',
     'climate',
   ];
@@ -21,7 +20,7 @@ export async function getNews() {
 
   try {
     const response = await axios.get(
-      `${BASIC_URL}?q=${queryString}&apikey=${API_KEY}`
+      `${BASIC_URL}?q=${queryString}&apikey=${API_KEY}&lang=en`
     );
     return response.data.articles;
   } catch (error) {
