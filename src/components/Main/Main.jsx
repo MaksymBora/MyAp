@@ -1,9 +1,15 @@
+import { MyVideos } from './MyVideos/MyVideo';
 import { News } from './News/News';
+
+import { StyledBlockOfMedia } from './Main.styled';
 
 export const Main = () => {
   return (
-    <div>
-      <News />
-    </div>
+    <section>
+      <StyledBlockOfMedia>
+        {/* <News /> */}
+        <MyVideos />
+      </StyledBlockOfMedia>
+    </section>
   );
 };
