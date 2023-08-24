@@ -1,10 +1,12 @@
 import { SearchBar } from "./SearchBar/SearchBar";
 import { WeatherCard } from "./SearchBar/WeatherCard/WeatherCard";
 import { fetchWeather } from "services/WeatherApi";
+import { usePosition } from './GetGeoPsn'
+
 const { useState, useEffect } = require("react");
 
 export const Header = () => {
-  const [query, setQuery] = useState('');
+  // const [query, setQuery] = useState('');
   const [city, setCity] = useState('');
   const [temperature, setTemperature] = useState(0);
   const [tempFeelsLike, setTempFeelsLike] = useState(0);
@@ -13,16 +15,29 @@ export const Header = () => {
   const [weatherState, setWeatherState] = useState('');
   // const [stateIcon, setStateIcon] = useState({});
   
-
+  const { position, error } = usePosition();
 
 
 
   useEffect(() => {
-    if (query === '') return;
+    // if (query === '') return;
+
+    if (error) {
+      console.log(error.message);
+      return;
+    }
+
+    if (!position) {
+      return console.log('Loading user location..');
+    }
 
     const loadResult = async () => {
+      const lat = parseFloat(position.latitude.toFixed(2));
+      const lon = parseFloat(position.longitude.toFixed(2));
+      console.log(lat, 'lat')
+      console.log(lon, 'long')
       try {
-        const weatherResult = await fetchWeather(query);
+        const weatherResult = await fetchWeather(lat, lon);
         const { temp, feels_like, temp_max, temp_min } = weatherResult.main;
 
         if (weatherResult) {
@@ -39,12 +54,12 @@ export const Header = () => {
     }
     loadResult();
 
-  }, [query, city, temperature, tempFeelsLike, tempMax, tempMin, weatherState]);
+  }, [ city, temperature, tempFeelsLike, tempMax, tempMin, weatherState, error, position]);
   
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setQuery(e.target.elements.query.value);
+    // setQuery(e.target.elements.query.value);
 
     e.target.reset();
   };
@@ -57,6 +72,8 @@ export const Header = () => {
     tempMin,
     weatherState,
  };
+  
+
   
   return (
     
