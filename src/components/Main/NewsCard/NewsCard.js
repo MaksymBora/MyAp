@@ -3,7 +3,7 @@ export const NewsCard = ({ news: item }) => {
     <li>
       <div>
         <p>{item.title}</p>
-        <img src={item.urlToImage} alt={item.title} />
+        <img src={item.image} alt={item.title} />
         <p>Author: {item.author}</p>
         <p>source: {item.source.name}</p>
       </div>

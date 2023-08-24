@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const BASIC_URL = 'https://newsapi.org/v2/everything';
+const BASIC_URL = 'https://gnews.io/api/v4/search';
+const API_KEY = '8be01aea27c0ace063a75957dc708c6b';
 
 export async function getNews() {
   const keywords = [
@@ -15,13 +16,10 @@ export async function getNews() {
   ];
   const queryString = keywords.join(' OR ');
 
-  const params = {
-    apiKey: '15a02b4161eb4df2bc84f6211734c445',
-    q: queryString,
-  };
-
   try {
-    const response = await axios.get(BASIC_URL, { params });
+    const response = await axios.get(
+      `${BASIC_URL}?q=${queryString}&apikey=${API_KEY}`
+    );
     return response.data.articles;
   } catch (error) {
     console.error(error);
