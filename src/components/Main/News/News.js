@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getNews } from 'services/NewsApi';
-import { NewSList } from '../NewsList/NewsList';
+import { NewSList } from './NewsList/NewsList';
 
 import { StyledNewsWrapper } from './News.styled';
 
@@ -23,6 +23,7 @@ export const News = () => {
 
   return (
     <StyledNewsWrapper>
+      <h2>NEWS</h2>
       <NewSList news={news} />
     </StyledNewsWrapper>
   );
