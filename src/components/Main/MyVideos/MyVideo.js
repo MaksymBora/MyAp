@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { VideoList } from './VideoList/VideoList';
-const { getMovies, getGenres } = require('services/Videos-API');
+const { getMovies } = require('services/Videos-API');
 
 export const MyVideos = () => {
   const [movies, setMovies] = useState([]);
