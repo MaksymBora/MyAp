@@ -6,7 +6,7 @@ export const StyledNewsList = styled.ul`
   gap: 30px;
   padding: 20px;
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(5, 1fr);
-  }
+  /* @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  } */
 `;
