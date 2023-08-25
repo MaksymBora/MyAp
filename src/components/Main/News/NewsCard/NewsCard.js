@@ -1,10 +1,16 @@
-export const NewsCard = ({ news: item }) => {
+export const NewsCard = ({
+  news: {
+    title,
+    image,
+    source: { name },
+  },
+}) => {
   return (
     <li>
       <div>
-        <p>{item.title}</p>
-        <img src={item.image} alt={item.title} />
-        <p>source: {item.source.name}</p>
+        <p>{title}</p>
+        <img src={image} alt={title} />
+        <p>source: {name}</p>
       </div>
     </li>
   );
