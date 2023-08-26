@@ -10,7 +10,6 @@ export async function getNews() {
     'Ukraine',
     'technology',
     'cars',
-    'sport',
     'business',
     'science',
     'sex',

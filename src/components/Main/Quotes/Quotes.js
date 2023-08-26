@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import quotes from '../../../data/quotes.json';
-import { StyledQuotesWrapper, StyledQuote } from './Quotes.styled';
+import {
+  StyledQuotesWrapper,
+  StyledQuote,
+  StyledQuoteAuthor,
+  StyledQuoteAuthorWrapper,
+} from './Quotes.styled';
 
 function getRandomQuote() {
   const randomIndex = Math.floor(Math.random() * quotes.length);
@@ -21,10 +26,10 @@ export const Quotes = () => {
 
   return (
     <StyledQuotesWrapper>
-      <div>
-        <StyledQuote>{quote}</StyledQuote>
-        <p>{author}</p>
-      </div>
+      <StyledQuote>"{quote}"</StyledQuote>
+      <StyledQuoteAuthorWrapper>
+        <StyledQuoteAuthor>{author}</StyledQuoteAuthor>
+      </StyledQuoteAuthorWrapper>
     </StyledQuotesWrapper>
   );
 };

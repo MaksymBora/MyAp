@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
+export const StyledSection = styled.section`
+  margin-top: 24px;
+  margin-bottom: 24px;
+`;
+
 export const StyledBlockOfMedia = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 15px;
-  margin-top: 20px;
 
   @media (min-width: 768px) {
     display: flex;
