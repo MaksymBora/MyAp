@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react';
 import { VideoList } from './VideoList/VideoList';
-import { StyledVideosWrapper } from './Videos.styled';
+import { StyledVideosWrapper, StyledOpenVideosBtn } from './Videos.styled';
 const { getMovies } = require('services/Videos-API');
 
 export const MyVideos = () => {
   const [movies, setMovies] = useState([]);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleClick = () => {
+    setIsVisible(prev => !prev);
+  };
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -21,10 +26,15 @@ export const MyVideos = () => {
 
   return (
     <StyledVideosWrapper>
-      <h2>My Videos</h2>
-      <div>
-        <VideoList movies={movies} />
-      </div>
+      <StyledOpenVideosBtn
+        type="button"
+        onClick={() => {
+          handleClick();
+        }}
+      >
+        WHAT TO WATCH
+      </StyledOpenVideosBtn>
+      {isVisible && <VideoList movies={movies} />}
     </StyledVideosWrapper>
   );
 };

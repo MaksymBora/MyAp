@@ -2,17 +2,21 @@ import { useEffect, useState } from 'react';
 import { getNews } from 'services/NewsApi';
 import { NewSList } from './NewsList/NewsList';
 
-import { StyledNewsWrapper } from './News.styled';
+import { StyledNewsWrapper, StyledOpenNewsBtn } from './News.styled';
 
 export const News = () => {
   const [news, setNews] = useState([]);
+  const [isVisible, setVisible] = useState(false);
+
+  const handleClick = () => {
+    setVisible(prev => !prev);
+  };
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
         const data = await getNews();
         setNews(data);
-        console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -23,11 +27,19 @@ export const News = () => {
 
   return (
     <StyledNewsWrapper>
-      <h2>NEWS</h2>
-      <div>
-        {' '}
-        <NewSList news={news} />
-      </div>
+      <StyledOpenNewsBtn
+        type="button"
+        onClick={() => {
+          handleClick();
+        }}
+      >
+        NEWS
+      </StyledOpenNewsBtn>
+      {isVisible && (
+        <div>
+          <NewSList news={news} />
+        </div>
+      )}
     </StyledNewsWrapper>
   );
 };
