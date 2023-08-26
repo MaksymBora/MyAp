@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledQuotesWrapper = styled.div`
-  width: 240px;
+  width: 300px;
 `;
 
 export const StyledQuote = styled.p`

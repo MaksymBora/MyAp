@@ -6,7 +6,7 @@ import {
   StyledMovieImg,
   StyledMovieOverview,
   StyledMovieGenre,
-} from './VideoCard.styled';
+} from './MovieCard.styled';
 
 export const VideoCard = ({
   movies: { title, poster_path, genre_ids, overview, release_date },

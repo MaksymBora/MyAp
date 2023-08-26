@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { VideoList } from './VideoList/VideoList';
-import { StyledVideosWrapper, StyledOpenVideosBtn } from './Videos.styled';
-const { getMovies } = require('services/Videos-API');
+import { VideoList } from './MoviesList/MoviesList';
+import { StyledVideosWrapper, StyledOpenVideosBtn } from './Movies.styled';
+const { getMovies } = require('services/Movies-API');
 
 export const MyVideos = () => {
   const [movies, setMovies] = useState([]);

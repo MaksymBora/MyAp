@@ -1,7 +1,8 @@
-import { MyVideos } from './MyVideos/Videos';
+import { MyVideos } from './MyVideos/Movies';
 import { News } from './News/News';
 
 import { StyledBlockOfMedia } from './Main.styled';
+import { Recipes } from './Recipes/Recipes';
 
 export const Main = () => {
   return (
@@ -9,6 +10,7 @@ export const Main = () => {
       <StyledBlockOfMedia>
         <News />
         <MyVideos />
+        <Recipes />
       </StyledBlockOfMedia>
     </section>
   );

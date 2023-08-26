@@ -1,5 +1,5 @@
-import { VideoCard } from '../VideoCard/VideoCard';
-import { StyledVideosList } from './VideoList.styled';
+import { VideoCard } from '../MovieCard/MovieCard';
+import { StyledVideosList } from './MoviesList.styled';
 
 export const VideoList = ({ movies }) => {
   return (

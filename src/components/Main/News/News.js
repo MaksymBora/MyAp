@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getNews } from 'services/NewsApi';
+import { getNews } from 'services/News-Api';
 import { NewSList } from './NewsList/NewsList';
 
 import { StyledNewsWrapper, StyledOpenNewsBtn } from './News.styled';
