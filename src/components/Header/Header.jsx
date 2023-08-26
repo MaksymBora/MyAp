@@ -1,11 +1,12 @@
-import { WeatherCard } from "./WeatherCard/WeatherCard";
-import { fetchWeather } from "services/WeatherApi";
-import { usePosition } from './GetGeoPsn'
+import { WeatherCard } from './WeatherCard/WeatherCard';
+import { fetchWeather } from 'services/WeatherApi';
+import { usePosition } from './GetGeoPsn';
+import { Quotes } from './Quotes/Quotes';
+import { StyledHeaderWrapper } from './Header.styled';
 
-const { useState, useEffect } = require("react");
+const { useState, useEffect } = require('react');
 
 export const Header = () => {
-
   const [city, setCity] = useState('');
   const [temperature, setTemperature] = useState(0);
   const [tempFeelsLike, setTempFeelsLike] = useState(0);
@@ -20,7 +21,7 @@ export const Header = () => {
       return;
     }
 
-    if (!position) { 
+    if (!position) {
       return;
     }
 
@@ -43,27 +44,23 @@ export const Header = () => {
       } catch (error) {
         console.log(error);
       }
-    }
+    };
     loadResult();
+  }, [error, position]);
 
-  }, [ error, position]);
-  
-
- const weatherProps = {
+  const weatherProps = {
     city,
     temperature,
     tempFeelsLike,
     tempMax,
     tempMin,
     weatherState,
- };
-  
+  };
 
-  
   return (
-    
-    <div>
-      {!position ? <p>Loading...</p> : <WeatherCard items={ weatherProps } />}
-    </div>
+    <StyledHeaderWrapper>
+      {!position ? <p>Loading...</p> : <WeatherCard items={weatherProps} />}
+      <Quotes />
+    </StyledHeaderWrapper>
   );
 };

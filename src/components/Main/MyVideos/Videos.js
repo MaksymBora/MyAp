@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { VideoList } from './VideoList/VideoList';
+import { StyledVideosWrapper } from './Videos.styled';
 const { getMovies } = require('services/Videos-API');
 
 export const MyVideos = () => {
@@ -19,9 +20,11 @@ export const MyVideos = () => {
   }, []);
 
   return (
-    <div>
+    <StyledVideosWrapper>
       <h2>My Videos</h2>
-      <VideoList movies={movies} />
-    </div>
+      <div>
+        <VideoList movies={movies} />
+      </div>
+    </StyledVideosWrapper>
   );
 };

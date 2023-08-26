@@ -28,7 +28,7 @@ export const VideoCard = ({
         <p>{overview}</p>
         <p>Release date: {release_date}</p>
         <img
-          src={`https://image.tmdb.org/t/p/w400${poster_path}`}
+          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
           alt={title}
         />
       </div>

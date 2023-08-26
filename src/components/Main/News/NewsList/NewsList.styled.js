@@ -1,12 +1,26 @@
 import styled from 'styled-components';
 
 export const StyledNewsList = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 30px;
-  padding: 20px;
+  height: 500px;
+  margin-top: 20px;
+  padding: 10px;
+  overflow-y: scroll;
 
-  /* @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  } */
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(20 158 202);
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: rgb(20 158 202) transparent;
 `;

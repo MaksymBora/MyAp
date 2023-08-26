@@ -24,7 +24,10 @@ export const News = () => {
   return (
     <StyledNewsWrapper>
       <h2>NEWS</h2>
-      <NewSList news={news} />
+      <div>
+        {' '}
+        <NewSList news={news} />
+      </div>
     </StyledNewsWrapper>
   );
 };
