@@ -5,7 +5,6 @@ export const StyledBlockOfMedia = styled.div`
   flex-direction: column;
   gap: 20px;
   padding: 15px;
-  outline: 1px solid green;
   margin-top: 20px;
 
   @media (min-width: 768px) {
