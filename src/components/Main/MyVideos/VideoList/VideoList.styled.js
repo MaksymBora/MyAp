@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledVideosList = styled.ul`
-  height: 500px;
+  height: 700px;
   margin-top: 20px;
   padding: 10px;
   overflow-y: scroll;

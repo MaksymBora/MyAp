@@ -15,6 +15,8 @@ export const StyledMovieTitle = styled.p`
 `;
 
 export const StyledMovieImg = styled.img`
+  width: 100%;
+  height: auto;
   margin-bottom: 12px;
 `;
 
