@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledVideosList = styled.ul`
-  height: 500px;
+  height: 100vh;
   margin-top: 20px;
   padding: 10px;
   overflow-y: scroll;
@@ -47,6 +47,7 @@ export const StyledMovieOverview = styled.p`
 export const StyledMovieImg = styled.img`
   width: 50%;
   margin-bottom: 12px;
+  border-radius: 8px;
 `;
 export const StyledMovieTitle = styled.p`
   font-size: 22px;
