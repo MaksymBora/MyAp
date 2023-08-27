@@ -13,7 +13,7 @@ export const StyledQuote = styled.p`
 
   @media (min-width: 768px) {
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
   }
 `;
 
@@ -25,7 +25,7 @@ export const StyledQuoteAuthorWrapper = styled.div`
 export const StyledQuoteAuthor = styled.p`
   font-style: italic;
   @media (min-width: 768px) {
-    margin-right: 350px;
+    margin-right: 50px;
     font-size: 18px;
   }
 `;

@@ -2,6 +2,7 @@ import { WeatherCard } from './WeatherCard/WeatherCard';
 import { fetchWeather } from 'services/WeatherApi';
 import { usePosition } from './GetGeoPsn';
 import { StyledHeaderWrapper } from './Header.styled';
+import { Quotes } from 'components/Header/Quotes/Quotes';
 
 const { useState, useEffect } = require('react');
 
@@ -59,6 +60,7 @@ export const Header = () => {
   return (
     <StyledHeaderWrapper>
       {!position ? <p>Loading...</p> : <WeatherCard items={weatherProps} />}
+      <Quotes />
     </StyledHeaderWrapper>
   );
 };
