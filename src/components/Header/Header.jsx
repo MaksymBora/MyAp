@@ -35,7 +35,6 @@ export const Header = () => {
     const loadResult = async () => {
       try {
         const weatherResult = await fetchWeather(lat, lon);
-        console.log(weatherResult);
         const { temp, feels_like, temp_max, temp_min, pressure, humidity } = weatherResult.list[0].main;
         
         if (weatherResult) {

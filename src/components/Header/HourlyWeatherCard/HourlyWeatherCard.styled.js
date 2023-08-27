@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 export const HourlyCard = styled.div`
   width: 100%;
   border-radius: 8px;
-  padding: 10px;
+
   background-color: #fff;
   color: #000;
 `;
@@ -31,17 +31,15 @@ export const Temperature = styled.p`
 `;
 
 export const Forecast = styled.div`
+  margin-bottom: 15px;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
 `;
 
-export const FeelsLike = styled.p`
-  font-size: 16px;
-`;
+export const FutureForecast = styled.ul``;
 
-export const MinMaxTemp = styled.p`
+export const ForecastItem = styled.li`
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 16px;
+  justify-content: space-between;
 `;
