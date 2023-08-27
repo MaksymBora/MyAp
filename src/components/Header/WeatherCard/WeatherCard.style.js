@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const WeatherWrapper = styled.div`
-  width: 50%;
+  min-width: 30%;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -12,7 +12,6 @@ export const WeatherWrapper = styled.div`
   border-bottom: 1px solid rgb(20 158 202);
   border-radius: 12px;
   box-shadow: -1px 9px 10px -9px rgba(255, 255, 255, 0.75);
-  cursor: pointer;
 `;
 
 export const Location = styled.div`

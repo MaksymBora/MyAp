@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const ForecastBtn = styled.div`
+  margin-left: auto;
+  background-color: transparent;
+  cursor: pointer;
+`;
+
 export const Wrapper = styled.div`
   display: flex;
 `;

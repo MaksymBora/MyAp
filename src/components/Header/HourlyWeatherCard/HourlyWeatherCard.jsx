@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
-import { FaCloud, FaCloudShowersHeavy, FaCloudRain, FaSun, FaCloudSun} from 'react-icons/fa6'
-import {Wrapper, HourlyCard, CurrentTemp, Forecast, LocationName, FutureForecast, ForecastItem,  Temperature} from './HourlyWeatherCard.styled'
+import { FaCloud, FaCloudShowersHeavy, FaCloudRain, FaSun, FaCloudSun, FaEllipsis} from 'react-icons/fa6'
+import {ForecastBtn, Wrapper, HourlyCard, CurrentTemp, Forecast, LocationName, FutureForecast, ForecastItem,  Temperature} from './HourlyWeatherCard.styled'
 
 const { useState } = require('react');
 
@@ -72,7 +72,7 @@ export const HourlyWeatherCard = ({ weatherData }) => {
 	const daysOfWeek = ['Su', 'Mo', 'Tue', 'Wen', 'Thu', 'Fr', 'Sa'];
 	return (
 		<>
-			<button onClick={ open }>Modal</button>
+			<ForecastBtn onClick={ open }><FaEllipsis size={24}/></ForecastBtn>
 			{ forecasteList[0] && <Modal
 				isOpen={ isOpen }
 				onRequestClose={ close }
