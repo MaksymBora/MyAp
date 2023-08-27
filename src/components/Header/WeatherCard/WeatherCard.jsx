@@ -31,17 +31,19 @@ export const WeatherCard = ({ items: { city,
     tempFeelsLike,
     tempMax,
     tempMin,
-	weatherState, pressure, humidity, forecasteList } }) => {
+	weatherState, pressure, humidity, forecasteList }, psn }) => {
 
 	const weatherData = { city, tempFeelsLike, tempMax, tempMin, temperature, weatherState, pressure, humidity, forecasteList };
 	return (
 		<>
 			<WeatherWrapper >
-				<Location><FaLocationDot size={ 18 } /></Location>
-				<CurrentTemp>{ temperature.toFixed(0) }°C</CurrentTemp>
-				<p>{ weatherIcon(weatherState) }</p>
-				
-				<HourlyWeatherCard weatherData={ weatherData} />
+				{ !psn ? <p>Loading...</p> : 
+					<>
+					<Location><FaLocationDot size={ 18 } /></Location>
+						<CurrentTemp>{ temperature.toFixed(0) }°C</CurrentTemp>
+						<p>{ weatherIcon(weatherState) }</p>
+						<HourlyWeatherCard weatherData={ weatherData} />
+					</> }
 			</WeatherWrapper>
 		</>
 	)

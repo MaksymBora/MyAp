@@ -70,7 +70,8 @@ export const Header = () => {
 
   return (
     <StyledHeaderWrapper>
-      {!position ? <p>Loading...</p> : <WeatherCard items={weatherProps} />}
+      {/* {!position ? <p>Loading...</p> : <WeatherCard items={weatherProps} />} */ }
+      <WeatherCard items={ weatherProps } psn={ position} />
       <Quotes />
     </StyledHeaderWrapper>
   );
