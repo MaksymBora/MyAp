@@ -7,7 +7,6 @@ export const WeatherWrapper = styled.div`
   gap: 8px;
   padding: 10px;
   align-items: center;
-  align-content: end;
   text-align: center;
   border-top: 1px solid rgb(20 158 202);
   border-bottom: 1px solid rgb(20 158 202);
