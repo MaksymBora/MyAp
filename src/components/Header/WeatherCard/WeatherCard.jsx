@@ -31,9 +31,9 @@ export const WeatherCard = ({ items: { city,
     tempFeelsLike,
     tempMax,
     tempMin,
-	weatherState } }) => {
+	weatherState, pressure, humidity, forecasteList } }) => {
 
-	const weatherData = { city, tempFeelsLike, tempMax, tempMin, temperature, weatherState };
+	const weatherData = { city, tempFeelsLike, tempMax, tempMin, temperature, weatherState, pressure, humidity, forecasteList };
 	return (
 		<>
 			<WeatherWrapper >

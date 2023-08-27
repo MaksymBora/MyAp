@@ -12,6 +12,9 @@ export const Header = () => {
   const [tempFeelsLike, setTempFeelsLike] = useState(0);
   const [tempMax, setTempMax] = useState(0);
   const [tempMin, setTempMin] = useState(0);
+  const [pressure, setPressure] = useState(0);
+  const [humidity, setHumidity] = useState(0);
+  const [forecasteList, setForecasteList] = useState([]);
   const [weatherState, setWeatherState] = useState('');
 
   const { position, error } = usePosition();
@@ -33,7 +36,7 @@ export const Header = () => {
       try {
         const weatherResult = await fetchWeather(lat, lon);
         console.log(weatherResult);
-        const { temp, feels_like, temp_max, temp_min } = weatherResult.list[0].main;
+        const { temp, feels_like, temp_max, temp_min, pressure, humidity } = weatherResult.list[0].main;
         
         if (weatherResult) {
           setCity(weatherResult.city.name);
@@ -42,12 +45,16 @@ export const Header = () => {
           setTempMax(temp_max);
           setTempMin(temp_min);
           setWeatherState(weatherResult.list[0].weather[0].main);
+          setPressure(pressure);
+          setHumidity(humidity);
+          setForecasteList(weatherResult.list)
         }
       } catch (error) {
         console.log(error);
       }
     };
     loadResult();
+    
   }, [error, position]);
 
   const weatherProps = {
@@ -57,6 +64,9 @@ export const Header = () => {
     tempMax,
     tempMin,
     weatherState,
+    pressure,
+    humidity,
+    forecasteList,
   };
 
   return (
