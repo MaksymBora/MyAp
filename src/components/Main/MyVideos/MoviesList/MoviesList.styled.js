@@ -25,7 +25,7 @@ export const StyledVideosList = styled.ul`
   scrollbar-color: rgb(20 158 202) transparent;
 `;
 
-export const StyledMovieCardWrapper = styled.li`
+export const StyledMovieCardItem = styled.li`
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
   border-radius: 10px;

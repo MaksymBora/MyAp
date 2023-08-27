@@ -2,7 +2,7 @@ import genres from '../../../../data/genres.json';
 
 import {
   StyledVideosList,
-  StyledMovieCardWrapper,
+  StyledMovieCardItem,
   StyledMovieTitle,
   StyledMovieImg,
   StyledMovieOverview,
@@ -27,23 +27,19 @@ export const VideoList = ({ movies }) => {
         const genresNames = getMovieGenres(genre_ids);
 
         return (
-          <li key={id}>
-            <StyledMovieCardWrapper>
-              <StyledMovieTitle>{title}</StyledMovieTitle>
-              <StyledImgDescriptionWrapper>
-                <StyledMovieOverview>{overview}</StyledMovieOverview>
-                <StyledMovieImg
-                  src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                  alt={title}
-                />
-              </StyledImgDescriptionWrapper>
-              <StyledMovieGenre>
-                Genre: {genresNames.join(', ')}
-              </StyledMovieGenre>
+          <StyledMovieCardItem key={id}>
+            <StyledMovieTitle>{title}</StyledMovieTitle>
+            <StyledImgDescriptionWrapper>
+              <StyledMovieOverview>{overview}</StyledMovieOverview>
+              <StyledMovieImg
+                src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                alt={title}
+              />
+            </StyledImgDescriptionWrapper>
+            <StyledMovieGenre>Genre: {genresNames.join(', ')}</StyledMovieGenre>
 
-              <p>Release date: {release_date}</p>
-            </StyledMovieCardWrapper>
-          </li>
+            <p>Release date: {release_date}</p>
+          </StyledMovieCardItem>
         );
       })}
     </StyledVideosList>
