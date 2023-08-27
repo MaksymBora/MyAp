@@ -12,7 +12,7 @@ export const StyledQuote = styled.p`
   margin-bottom: 12px;
 
   @media (min-width: 768px) {
-    margin-left: 350px;
+    text-align: center;
     font-size: 24px;
   }
 `;

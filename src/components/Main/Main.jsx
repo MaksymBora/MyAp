@@ -14,7 +14,7 @@ export const Main = () => {
       </StyledSection>
       <section>
         <StyledBlockOfMedia>
-          <News />
+          {/* <News /> */}
           <MyVideos />
           <Recipes />
         </StyledBlockOfMedia>
