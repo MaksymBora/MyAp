@@ -1,5 +1,5 @@
 import { MyVideos } from './MyVideos/Movies';
-import { News } from './News/News';
+// import { News } from './News/News';
 import { Quotes } from './Quotes/Quotes';
 
 import { StyledBlockOfMedia, StyledSection } from './Main.styled';
