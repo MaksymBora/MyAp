@@ -1,8 +1,7 @@
-import { CiTempHigh } from "react-icons/ci";
-import { FaTemperatureArrowUp, FaTemperatureArrowDown, FaCloud, FaCloudShowersHeavy, FaCloudRain, FaSun, FaCloudSun, FaLocationDot } from "react-icons/fa6";
-import { WeatherWrapper, Location, CurrentTemp, LocationName, MinMaxTemp, Temperature, FeelsLike } from './WeatherCard.style'
+import {  FaCloud, FaCloudShowersHeavy, FaCloudRain, FaSun, FaCloudSun, FaLocationDot } from "react-icons/fa6";
+import { WeatherWrapper, Location, CurrentTemp } from './WeatherCard.style'
+import { HourlyWeatherCard } from "../HourlyWeatherCard/HourlyWeatherCard";
 
-const { useState } = require('react');
 
 function weatherIcon (weather) {
 	switch (weather) {
@@ -33,30 +32,21 @@ export const WeatherCard = ({ items: { city,
     tempMax,
     tempMin,
 	weatherState } }) => {
-	const [isShown, setIsShown] = useState(false);
 
-	const toggle = () => setIsShown(isShown => !isShown);
-
+	const weatherData = { city, tempFeelsLike, tempMax, tempMin, temperature, weatherState };
 	return (
 		<>
-			<WeatherWrapper onClick={toggle}>
-				{ !isShown ?
-					<>
-						<Location><FaLocationDot size={ 18 } /></Location>
-						<CurrentTemp>{ temperature.toFixed(0) }°C</CurrentTemp>
-						<p>{ weatherIcon(weatherState) }</p>
-					</> :
-					<>
-						<LocationName>{ city }</LocationName>
-						<CiTempHigh size={ 21 } />
-						<Temperature> { temperature.toFixed(0) }°C</Temperature>
-						<FeelsLike>Feels like: { tempFeelsLike.toFixed(0) }°C</FeelsLike>
-						<MinMaxTemp><FaTemperatureArrowUp size={ 21 } /> { tempMax.toFixed(0) }°C  <FaTemperatureArrowDown size={ 21 } /> { tempMin.toFixed(0) }°C</MinMaxTemp>
-						<p>{ weatherIcon(weatherState) }</p>
-					</> }
+			<WeatherWrapper >
+				<Location><FaLocationDot size={ 18 } /></Location>
+				<CurrentTemp>{ temperature.toFixed(0) }°C</CurrentTemp>
+				<p>{ weatherIcon(weatherState) }</p>
+				
+				<HourlyWeatherCard weatherData={ weatherData} />
 			</WeatherWrapper>
 		</>
 	)
 };
+
+
 
 

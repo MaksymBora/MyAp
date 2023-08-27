@@ -33,15 +33,15 @@ export const Header = () => {
       try {
         const weatherResult = await fetchWeather(lat, lon);
         console.log(weatherResult);
-        const { temp, feels_like, temp_max, temp_min } = weatherResult.main;
+        const { temp, feels_like, temp_max, temp_min } = weatherResult.list[0].main;
         
         if (weatherResult) {
-          setCity(weatherResult.name);
+          setCity(weatherResult.city.name);
           setTemperature(temp);
           setTempFeelsLike(feels_like);
           setTempMax(temp_max);
           setTempMin(temp_min);
-          setWeatherState(weatherResult.weather[0].main);
+          setWeatherState(weatherResult.list[0].weather[0].main);
         }
       } catch (error) {
         console.log(error);
