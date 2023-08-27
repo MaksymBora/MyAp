@@ -14,7 +14,6 @@ export const Recipes = () => {
     const fetchRecipes = async () => {
       try {
         const result = await getRecipes();
-        console.log(result);
         setRecipes(result);
       } catch (error) {
         console.log(error);
