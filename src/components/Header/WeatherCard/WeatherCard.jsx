@@ -1,6 +1,7 @@
 import { CiTempHigh } from "react-icons/ci";
 import { FaTemperatureArrowUp, FaTemperatureArrowDown, FaCloud, FaCloudShowersHeavy, FaCloudRain, FaSun, FaCloudSun, FaLocationDot } from "react-icons/fa6";
 import { WeatherWrapper, Location, CurrentTemp, LocationName, MinMaxTemp, Temperature, FeelsLike } from './WeatherCard.style'
+
 const { useState } = require('react');
 
 function weatherIcon (weather) {
@@ -26,9 +27,6 @@ function weatherIcon (weather) {
 	}
 };
 
-
-
-
 export const WeatherCard = ({ items: { city,
     temperature,
     tempFeelsLike,
@@ -38,10 +36,9 @@ export const WeatherCard = ({ items: { city,
 	const [isShown, setIsShown] = useState(false);
 
 	const toggle = () => setIsShown(isShown => !isShown);
-	
+
 	return (
 		<>
-			
 			<WeatherWrapper onClick={toggle}>
 				{ !isShown ?
 					<>

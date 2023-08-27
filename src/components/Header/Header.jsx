@@ -13,6 +13,7 @@ export const Header = () => {
   const [tempMax, setTempMax] = useState(0);
   const [tempMin, setTempMin] = useState(0);
   const [weatherState, setWeatherState] = useState('');
+
   const { position, error } = usePosition();
 
   useEffect(() => {
@@ -31,8 +32,9 @@ export const Header = () => {
     const loadResult = async () => {
       try {
         const weatherResult = await fetchWeather(lat, lon);
+        console.log(weatherResult);
         const { temp, feels_like, temp_max, temp_min } = weatherResult.main;
-
+        
         if (weatherResult) {
           setCity(weatherResult.name);
           setTemperature(temp);
