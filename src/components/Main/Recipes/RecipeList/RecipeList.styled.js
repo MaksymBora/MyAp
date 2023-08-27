@@ -43,11 +43,18 @@ export const StyledDishHeader = styled.div`
 
 export const StyledDishOverviewWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const StyledDishOverview = styled.div`
   margin-right: 18px;
-  width: 50%;
+  @media (min-width: 768px) {
+    width: 50%;
+  }
 `;
 
 export const StyledDishTitle = styled.p`
@@ -80,6 +87,8 @@ export const StyledColoredSpan = styled.span`
   color: orange;
 `;
 export const StyledDishImg = styled.img`
-  width: 50%;
   border-radius: 12px;
+  @media (min-width: 768px) {
+    width: 50%;
+  }
 `;
