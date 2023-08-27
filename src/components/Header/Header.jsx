@@ -12,6 +12,9 @@ export const Header = () => {
   const [tempFeelsLike, setTempFeelsLike] = useState(0);
   const [tempMax, setTempMax] = useState(0);
   const [tempMin, setTempMin] = useState(0);
+  const [pressure, setPressure] = useState(0);
+  const [humidity, setHumidity] = useState(0);
+  const [forecasteList, setForecasteList] = useState([]);
   const [weatherState, setWeatherState] = useState('');
 
   const { position, error } = usePosition();
@@ -32,22 +35,25 @@ export const Header = () => {
     const loadResult = async () => {
       try {
         const weatherResult = await fetchWeather(lat, lon);
-        console.log(weatherResult);
-        const { temp, feels_like, temp_max, temp_min } = weatherResult.main;
+        const { temp, feels_like, temp_max, temp_min, pressure, humidity } = weatherResult.list[0].main;
         
         if (weatherResult) {
-          setCity(weatherResult.name);
+          setCity(weatherResult.city.name);
           setTemperature(temp);
           setTempFeelsLike(feels_like);
           setTempMax(temp_max);
           setTempMin(temp_min);
-          setWeatherState(weatherResult.weather[0].main);
+          setWeatherState(weatherResult.list[0].weather[0].main);
+          setPressure(pressure);
+          setHumidity(humidity);
+          setForecasteList(weatherResult.list)
         }
       } catch (error) {
         console.log(error);
       }
     };
     loadResult();
+    
   }, [error, position]);
 
   const weatherProps = {
@@ -57,11 +63,15 @@ export const Header = () => {
     tempMax,
     tempMin,
     weatherState,
+    pressure,
+    humidity,
+    forecasteList,
   };
 
   return (
     <StyledHeaderWrapper>
-      {!position ? <p>Loading...</p> : <WeatherCard items={weatherProps} />}
+      {/* {!position ? <p>Loading...</p> : <WeatherCard items={weatherProps} />} */ }
+      <WeatherCard items={ weatherProps } psn={ position} />
       <Quotes />
     </StyledHeaderWrapper>
   );
