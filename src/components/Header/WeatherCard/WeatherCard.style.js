@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const WeatherWrapper = styled.div`
-  min-width: 30%;
+  min-width: 33%;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
