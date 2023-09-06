@@ -100,6 +100,7 @@ export const ForecastItem = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 3px;
   font-size: 18px;
   line-height: 1.3;
   font-weight: 500;
