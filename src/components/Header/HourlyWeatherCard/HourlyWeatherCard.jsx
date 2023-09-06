@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import { FaEllipsis} from 'react-icons/fa6'
-import {ForecastBtn, Wrapper, HourlyCard, CurrentTemp, Forecast, LocationName, FutureForecast, ForecastItem,  Temperature} from './HourlyWeatherCard.styled'
+import {ForecastBtn, Wrapper, HourlyCard, CurrentTemp, Forecast, LocationName, WeatherStateInfo, TimeTable, TempTable, FutureForecast, ForecastItem,  Temperature} from './HourlyWeatherCard.styled'
 
 const { useState } = require('react');
 
@@ -92,21 +92,21 @@ export const HourlyWeatherCard = ({ weatherData }) => {
 					<HourlyCard>
 						<CurrentTemp>
 							<LocationName>{ city }</LocationName>
-							<p>{ weatherIcon(weatherState) } { weatherState }</p>
+							<WeatherStateInfo>{ weatherIcon(weatherState) } { weatherState }</WeatherStateInfo>
 							<Temperature> { temperature.toFixed(0) }°C</Temperature>
 							<p>Pressure: { pressure } | Humidity: { humidity }</p>
 						</CurrentTemp>
 						<Forecast>
 							<table>
 								<tbody>
-									<tr>
+									<TimeTable>
 										<td>Now</td>
 										<td>{ new Date(forecasteList[1].dt * 1000).getUTCHours() === 0 ? '24' : new Date(forecasteList[1].dt * 1000).getUTCHours() }</td>
 										<td>{ new Date(forecasteList[2].dt * 1000).getUTCHours() === 0 ? '24' : new Date(forecasteList[2].dt * 1000).getUTCHours() }</td>
 										<td>{ new Date(forecasteList[3].dt * 1000).getUTCHours() === 0 ? '24' : new Date(forecasteList[3].dt * 1000).getUTCHours() }</td>
 										<td>{ new Date(forecasteList[4].dt * 1000).getUTCHours() === 0 ? '24' : new Date(forecasteList[4].dt * 1000).getUTCHours() }</td>
 										<td>{ new Date(forecasteList[5].dt * 1000).getUTCHours() === 0 ? '24' : new Date(forecasteList[5].dt * 1000).getUTCHours() }</td>
-									</tr>
+									</TimeTable>
 									<tr>
 										<td>{ weatherIcon(weatherState) }</td>
 										<td>{ weatherIcon(forecasteList[1].weather[0].main) }</td>
@@ -115,14 +115,14 @@ export const HourlyWeatherCard = ({ weatherData }) => {
 										<td>{ weatherIcon(forecasteList[4].weather[0].main) }</td>
 										<td>{ weatherIcon(forecasteList[5].weather[0].main) }</td>
 									</tr>
-									<tr>
+									<TempTable>
 										<td>{ temperature.toFixed(0) }°</td>
 										<td>{ forecasteList[1].main.temp.toFixed(0) }°</td>
 										<td>{ forecasteList[2].main.temp.toFixed(0) }°</td>
 										<td>{ forecasteList[3].main.temp.toFixed(0) }°</td>
 										<td>{ forecasteList[4].main.temp.toFixed(0) }°</td>
 										<td>{ forecasteList[5].main.temp.toFixed(0) }°</td>
-									</tr>
+									</TempTable>
 								</tbody>
 							</table>
 						</Forecast>
