@@ -43,7 +43,7 @@ export const Header = () => {
           setTempFeelsLike(feels_like);
           setTempMax(temp_max);
           setTempMin(temp_min);
-          setWeatherState(weatherResult.list[0].weather[0].main);
+          setWeatherState(weatherResult.list[0].weather[0].description);
           setPressure(pressure);
           setHumidity(humidity);
           setForecasteList(weatherResult.list)
