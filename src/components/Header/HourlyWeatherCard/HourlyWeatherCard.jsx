@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import { FaCloud, FaCloudShowersHeavy, FaCloudRain, FaSun, FaCloudSun, FaEllipsis} from 'react-icons/fa6'
+import { FaEllipsis} from 'react-icons/fa6'
 import {ForecastBtn, Wrapper, HourlyCard, CurrentTemp, Forecast, LocationName, FutureForecast, ForecastItem,  Temperature} from './HourlyWeatherCard.styled'
 
 const { useState } = require('react');
@@ -87,8 +87,7 @@ export const HourlyWeatherCard = ({ weatherData }) => {
 				isOpen={ isOpen }
 				onRequestClose={ close }
 				style={ customStyles }
-				contentLabel="Weather Modal"
-			>
+				contentLabel="Weather Modal">
 				<Wrapper>
 					<HourlyCard>
 						<CurrentTemp>

@@ -1,27 +1,40 @@
-import {  FaCloud, FaCloudShowersHeavy, FaCloudRain, FaSun, FaCloudSun, FaLocationDot } from "react-icons/fa6";
+import { FaLocationDot } from "react-icons/fa6";
 import { WeatherWrapper, Location, CurrentTemp } from './WeatherCard.style'
 import { HourlyWeatherCard } from "../HourlyWeatherCard/HourlyWeatherCard";
 
 
 function weatherIcon (weather) {
 	switch (weather) {
-		case 'Clouds':
-			return <FaCloud size={ 24 } color={'#d3d3d3'} />;
+		case 'clear sky':
+			return <img src={ 'https://openweathermap.org/img/wn/01d@2x.png' } alt={weather} width={ 50 } />;
+		
+		case 'few clouds':
+			return <img src={ 'https://openweathermap.org/img/wn/02d@2x.png' } alt={ weather } width={ 50 } />;
+		
+		case 'scattered clouds':
+			return <img src={ 'https://openweathermap.org/img/wn/03d@2x.png' } alt={ weather } width={ 50 } />;
+		
+		case 'broken clouds':
+		return <img src={ 'https://openweathermap.org/img/wn/04d@2x.png' } alt={weather} width={ 50 } />;
 			
-		case 'Moderate rain':
-			return <FaCloudShowersHeavy size={24} color={'#d3d3d3'}/>;
+		case 'shower rain':
+			return <img src={ 'https://openweathermap.org/img/wn/09d@2x.png' } alt={weather} width={50} />;
 			
-		case 'Light rain':
-			return <FaCloudRain size={24} color={'#d3d3d3'}/>;
-			
-		case 'Clear sky':
-			return <FaSun size={24}/>;
-			
-		case 'Broken clouds':
-			return <FaCloudSun size={24} color={'#d3d3d3'}/>;
+		case 'rain':
+			return <img src={ 'https://openweathermap.org/img/wn/10d@2x.png' } alt={ weather } width={ 50 } />;
+		
+		case 'thunderstorm':
+			return <img src={ 'https://openweathermap.org/img/wn/11d@2x.png' } alt={ weather } width={ 50 } />;
+		
+		case 'snow':
+			return <img src={ 'https://openweathermap.org/img/wn/13d@2x.png' } alt={ weather } width={ 50 } />;
+		
+		case 'mist':
+			return <img src={ 'https://openweathermap.org/img/wn/50d@2x.png' } alt={ weather } width={ 50 } />;
+		
 			
 		default:
-			return <FaSun size={ 24 } color={'yellow'} />;
+			return <img src={ 'https://openweathermap.org/img/wn/01d@2x.png' } alt={weather} width={ 50 } />;
 			
 	}
 };
