@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
 export const StyledVideosList = styled.ul`
-  height: 100vh;
-  margin-top: 20px;
-  padding: 10px;
-  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 25px;
+  padding: 15px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -28,9 +32,16 @@ export const StyledVideosList = styled.ul`
 export const StyledMovieCardItem = styled.li`
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-bottom: 20px;
   padding: 20px;
+  cursor: pointer;
+
+  &:hover {
+    border-top: 1px solid rgb(20 158 202);
+    border-bottom: 1px solid rgb(20 158 202);
+    transition: all 200ms;
+  }
 `;
 
 export const StyledImgDescriptionWrapper = styled.div`

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import genres from '../../../../data/genres.json';
 
 import {
