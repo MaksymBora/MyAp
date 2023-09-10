@@ -17,7 +17,6 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 const SignInSide = () => {
@@ -28,7 +27,7 @@ const SignInSide = () => {
     margin: '20px auto',
     boxShadow: '0px 1px 14px -4px rgba(255,255,255,0.75)',
   };
-  const avatarStyle = { backgroundColor: '#1bbd7e' };
+  const avatarStyle = { backgroundColor: '#1bbd7e', marginBottom: '16px' };
 
   const btnstyle = { margin: '8px 0' };
 
@@ -42,7 +41,6 @@ const SignInSide = () => {
 
   return (
     <div>
-      <h2>Hello</h2>
       <Grid>
         <Paper elevation={10} style={paperStyle}>
           <Grid align="center">
