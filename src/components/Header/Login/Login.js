@@ -58,17 +58,11 @@ const SignInSide = () => {
             fullWidth
             required
           />
-          {/* <TextField
-            id="outlined-basic"
-            label="Password"
+          <FormControl
+            sx={{ mt: 2, width: '100%' }}
             variant="outlined"
-            placeholder="Enter password"
-            type="password"
-            fullWidth
             required
-          /> */}
-
-          <FormControl sx={{ mt: 2, width: '100%' }} variant="outlined">
+          >
             <InputLabel htmlFor="outlined-adornment-password">
               Password
             </InputLabel>
@@ -103,7 +97,7 @@ const SignInSide = () => {
           >
             Sign in
           </Button>
-          <Typography>
+          <Typography variant="body2">
             <Link
               component="button"
               variant="body2"
@@ -114,8 +108,10 @@ const SignInSide = () => {
               Forgot password ?
             </Link>
           </Typography>
-          <Typography>
-            Do you have an account ?
+          <div>
+            <Typography variant="body2" sx={{ mr: 1, d: 'inline' }}>
+              Do you have an account ?
+            </Typography>
             <Link
               component="button"
               variant="body2"
@@ -125,7 +121,7 @@ const SignInSide = () => {
             >
               Sign Up
             </Link>
-          </Typography>
+          </div>
         </Paper>
       </Grid>
     </div>

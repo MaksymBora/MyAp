@@ -5,6 +5,7 @@ import { Layout } from "./Layout/Layout";
 import Home from "Pages/Home";
 import { MyVideos } from "./Main/MyVideos/Movies";
 import SignInSide from "./Header/Login/Login";
+import SignUp from "./Header/SignUp/SignUp";
 
 export const App = () => {
   return (
@@ -16,6 +17,7 @@ export const App = () => {
           <Route path="movies" element={ <MyVideos/>} />
         </Route>
         <Route path="login" element={ <SignInSide/>} />
+        <Route path="signup" element={ <SignUp/>} />
       </Routes>
       {/* <Header />
       <Main /> */}

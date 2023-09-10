@@ -75,6 +75,7 @@ export const Header = () => {
       <WeatherCard items={ weatherProps } psn={ position} />
       <Quotes />
       <Link to="login">Log In</Link>
+      <Link to="signup">Sign Up</Link>
     </StyledHeaderWrapper>
   );
 };
