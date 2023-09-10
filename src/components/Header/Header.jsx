@@ -3,6 +3,7 @@ import { fetchWeather } from 'services/WeatherApi';
 import { usePosition } from './GetGeoPsn';
 import { StyledHeaderWrapper } from './Header.styled';
 import { Quotes } from 'components/Header/Quotes/Quotes';
+import { Link } from 'react-router-dom';
 
 const { useState, useEffect } = require('react');
 
@@ -73,6 +74,7 @@ export const Header = () => {
       {/* {!position ? <p>Loading...</p> : <WeatherCard items={weatherProps} />} */ }
       <WeatherCard items={ weatherProps } psn={ position} />
       <Quotes />
+      <Link to="login">Log In</Link>
     </StyledHeaderWrapper>
   );
 };

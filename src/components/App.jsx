@@ -4,6 +4,7 @@ import { Main } from './Main/Main';
 import { Layout } from "./Layout/Layout";
 import Home from "Pages/Home";
 import { MyVideos } from "./Main/MyVideos/Movies";
+import SignInSide from "./Header/Login/Login";
 
 export const App = () => {
   return (
@@ -11,6 +12,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={ <Layout /> }>
           <Route index element={ <Home /> } />
+          <Route path="login" element={ <SignInSide/>} />
           <Route path="movies" element={ <MyVideos/>} />
         </Route>
       </Routes>
