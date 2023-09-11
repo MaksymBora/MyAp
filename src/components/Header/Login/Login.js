@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Avatar,
   Paper,
@@ -18,8 +18,17 @@ import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+
+const validationSchema = Yup.object().shape({
+  username: Yup.string().email('Please enter valid email').required('Required'),
+  password: Yup.string().required('Required'),
+});
 
 const SignInSide = ({ handleChange }) => {
+  const [showPassword, setShowPassword] = useState(false);
+
   const paperStyle = {
     padding: 20,
     minHeight: '50vh',
@@ -27,11 +36,22 @@ const SignInSide = ({ handleChange }) => {
     margin: '0 auto',
   };
   const avatarStyle = { backgroundColor: '#1bbd7e', marginBottom: '16px' };
-
   const btnstyle = { margin: '8px 0' };
 
-  const [showPassword, setShowPassword] = React.useState(false);
+  const onSubmit = (values, props) => {
+    console.log(values);
 
+    setTimeout(() => {
+      props.resetForm();
+      props.setSubmitting(false);
+    }, 2000);
+  };
+
+  const initialValues = {
+    username: '',
+    password: '',
+    remember: false,
+  };
   const handleClickShowPassword = () => setShowPassword(show => !show);
 
   const handleMouseDownPassword = event => {
@@ -49,57 +69,70 @@ const SignInSide = ({ handleChange }) => {
             <h2>Sign in</h2>
           </Grid>
 
-          <form>
-            <TextField
-              sx={{ mt: 3 }}
-              id="outlined-basic"
-              label="Login"
-              variant="outlined"
-              placeholder="Enter username"
-              type="email"
-              fullWidth
-              required
-            />
-            <FormControl
-              sx={{ mt: 2, width: '100%' }}
-              variant="outlined"
-              required
-            >
-              <InputLabel htmlFor="outlined-adornment-password">
-                Password
-              </InputLabel>
-              <OutlinedInput
-                id="outlined-adornment-password"
-                type={showPassword ? 'text' : 'password'}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                      edge="end"
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                label="Password"
-              />
-            </FormControl>
-            <FormControlLabel
-              control={<Checkbox defaultChecked />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              color="primary"
-              fullWidth
-              variant="contained"
-              style={btnstyle}
-            >
-              Sign in
-            </Button>
-          </form>
+          <Formik
+            initialValues={initialValues}
+            onSubmit={onSubmit}
+            validationSchema={validationSchema}
+          >
+            {props => (
+              <Form>
+                <Field
+                  as={TextField}
+                  sx={{ mt: 3 }}
+                  id="outlined-basic"
+                  name="username"
+                  label="Login"
+                  variant="outlined"
+                  placeholder="Enter username"
+                  type="text"
+                  fullWidth
+                />
+                <ErrorMessage name="username" />
+                <FormControl sx={{ mt: 2, width: '100%' }} variant="outlined">
+                  <InputLabel htmlFor="outlined-adornment-password">
+                    Password
+                  </InputLabel>
+                  <Field
+                    as={OutlinedInput}
+                    id="outlined-adornment-password"
+                    name="password"
+                    type={showPassword ? 'text' : 'password'}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          edge="end"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                    label="Password"
+                  />
+                </FormControl>
+                <ErrorMessage name="password" />
+                <Field
+                  as={FormControlLabel}
+                  control={<Checkbox />}
+                  label="Remember me"
+                  name="remember"
+                  sx={{ width: '100%' }}
+                />
+                <Button
+                  type="submit"
+                  color="primary"
+                  fullWidth
+                  variant="contained"
+                  disabled={props.isSubmitting}
+                  style={btnstyle}
+                >
+                  {props.isSubmitting ? 'Loading' : 'Sign in'}
+                </Button>
+              </Form>
+            )}
+          </Formik>
           <Typography variant="body2">
             <Link
               component="button"
