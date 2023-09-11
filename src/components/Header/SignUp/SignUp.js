@@ -14,6 +14,7 @@ import {
   Checkbox,
 } from '@mui/material';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import FormHelperText from '@mui/material/FormHelperText';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -40,13 +41,32 @@ const SignUp = () => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(3, 'It`s too short').required('Required'),
     email: Yup.string().email('Enter valid email').required('Required'),
+    gender: Yup.string()
+      .oneOf(['male', 'female'], 'Required')
+      .required('Required'),
     phoneNumber: Yup.number()
       .typeError('Enter valid phone number')
       .required('Required'),
+    password: Yup.string()
+      .min(8, 'Password minimum length should be 8')
+      .required('Required'),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password')], 'Password not matched')
+      .required('Required'),
+    termAndConditions: Yup.string().oneOf(
+      ['true'],
+      'Accept terms & conditions'
+    ),
   });
 
   const onSubmit = (values, props) => {
     console.log(values);
+    console.log(props);
+    setTimeout(() => {
+      props.resetForm();
+      props.setSubmitting(false);
+      values.termAndConditions = false;
+    }, 2000);
   };
 
   return (
@@ -89,20 +109,18 @@ const SignUp = () => {
                 label="Email"
                 variant="outlined"
                 placeholder="Enter email"
-                // type="email"
                 fullWidth
               />
               <ErrorMessage name="email" />
-              {/* Radio */}
-
-              <FormControl style={{ marginTop: '8px' }}>
-                <FormLabel id="demo-radio-buttons-group-label">
-                  Gender
-                </FormLabel>
+              {/*======= Radio =========*/}
+              <FormControl
+                style={{ marginTop: '8px', width: '100%' }}
+                component="fieldset"
+              >
+                <FormLabel component="legend">Gender</FormLabel>
                 <Field
                   as={RadioGroup}
-                  aria-labelledby="demo-radio-buttons-group-label"
-                  defaultValue="female"
+                  aria-labelledby="gender"
                   name="gender"
                   style={{ display: 'initial' }}
                 >
@@ -118,6 +136,9 @@ const SignUp = () => {
                   />
                 </Field>
               </FormControl>
+              <FormHelperText>
+                <ErrorMessage name="gender" />
+              </FormHelperText>
 
               <Field
                 as={TextField}
@@ -130,33 +151,46 @@ const SignUp = () => {
                 placeholder="Enter phone number"
                 fullWidth
               />
+              <ErrorMessage name="phoneNumber" />
               <Field
                 as={TextField}
                 sx={{ mt: 3 }}
                 id="outlined-basic"
+                type="password"
                 name="password"
                 label="Password"
                 variant="outlined"
                 placeholder="Enter password"
                 fullWidth
               />
+              <ErrorMessage name="password" />
               <Field
                 as={TextField}
                 sx={{ mt: 3 }}
                 id="outlined-basic"
+                type="password"
                 name="confirmPassword"
                 label="Confirm Password"
                 variant="outlined"
                 placeholder="Confirm password"
                 fullWidth
               />
+              <ErrorMessage name="confirmPassword" />
               <FormControlLabel
-                control={<Field as={Checkbox} name="termAndConditions" />}
+                control={<Field as={Checkbox} />}
+                name="termAndConditions"
                 label="I accept the terms and conditions."
               />
-
-              <Button type="submit" variant="contained" color="primary">
-                SIGN UP
+              <FormHelperText>
+                <ErrorMessage name="termAndConditions" />
+              </FormHelperText>
+              <Button
+                type="submit"
+                variant="contained"
+                disabled={props.isSubmitting}
+                color="primary"
+              >
+                {props.isSubmitting ? 'Loading' : 'Sign up'}
               </Button>
             </Form>
           )}
