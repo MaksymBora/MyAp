@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MyAp/static/css/main.7cda0caf.css",
-    "main.js": "/MyAp/static/js/main.92373de7.js",
+    "main.js": "/MyAp/static/js/main.4f5f79d6.js",
     "static/media/few-clouds.jpg": "/MyAp/static/media/few-clouds.0621b1cadf6e10e9c2cf.jpg",
     "static/media/clear-sky.jpg": "/MyAp/static/media/clear-sky.bb293412778a52404341.jpg",
     "static/media/scattered-clouds.jpg": "/MyAp/static/media/scattered-clouds.f2d2693bf521edc1a9f8.jpg",
@@ -11,10 +11,10 @@
     "static/media/mist.jpg": "/MyAp/static/media/mist.3ae295f4b9ccd1179a02.jpg",
     "index.html": "/MyAp/index.html",
     "main.7cda0caf.css.map": "/MyAp/static/css/main.7cda0caf.css.map",
-    "main.92373de7.js.map": "/MyAp/static/js/main.92373de7.js.map"
+    "main.4f5f79d6.js.map": "/MyAp/static/js/main.4f5f79d6.js.map"
   },
   "entrypoints": [
     "static/css/main.7cda0caf.css",
-    "static/js/main.92373de7.js"
+    "static/js/main.4f5f79d6.js"
   ]
 }
