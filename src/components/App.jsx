@@ -13,10 +13,7 @@ export const App = () => {
           <Route path="login" element={ <SignInOutContainer/>} />
           <Route path="movies" element={ <MyVideos/>} />
         </Route>
-         
       </Routes>
-      
-
     </div>
   );
 };
