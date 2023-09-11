@@ -14,6 +14,8 @@ import {
   Checkbox,
 } from '@mui/material';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
 const SignUp = () => {
   const paperStyle = {
@@ -21,10 +23,31 @@ const SignUp = () => {
     minHeight: '72vh',
     width: 320,
     margin: '0 auto',
-    boxShadow: '0px 1px 14px -4px rgba(255,255,255,0.75)',
   };
 
   const avatarStyle = { backgroundColor: '#1bbd7e' };
+
+  const initialValues = {
+    name: '',
+    email: '',
+    gender: '',
+    phoneNumber: '',
+    password: '',
+    confirmPassword: '',
+    termAndConditions: false,
+  };
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().min(3, 'It`s too short').required('Required'),
+    email: Yup.string().email('Enter valid email').required('Required'),
+    phoneNumber: Yup.number()
+      .typeError('Enter valid phone number')
+      .required('Required'),
+  });
+
+  const onSubmit = (values, props) => {
+    console.log(values);
+  };
 
   return (
     <Grid>
@@ -39,84 +62,105 @@ const SignUp = () => {
           </Typography>
         </Grid>
 
-        <form>
-          <TextField
-            sx={{ mt: 3 }}
-            id="outlined-basic"
-            label="Name"
-            variant="outlined"
-            type="text"
-            placeholder="Enter name"
-            fullWidth
-            required
-          />
-          <TextField
-            sx={{ mt: 3 }}
-            id="outlined-basic"
-            label="Email"
-            variant="outlined"
-            placeholder="Enter email"
-            type="email"
-            fullWidth
-            required
-          />
-          {/* Radio */}
-
-          <FormControl style={{ marginTop: '8px' }}>
-            <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
-            <RadioGroup
-              aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
-              name="radio-buttons-group"
-              style={{ display: 'initial' }}
-            >
-              <FormControlLabel
-                value="female"
-                control={<Radio />}
-                label="Female"
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          {props => (
+            <Form>
+              <Field
+                as={TextField}
+                sx={{ mt: 3 }}
+                id="outlined-basic"
+                name="name"
+                label="Name"
+                variant="outlined"
+                type="text"
+                placeholder="Enter name"
+                fullWidth
               />
-              <FormControlLabel value="male" control={<Radio />} label="Male" />
-            </RadioGroup>
-          </FormControl>
+              <ErrorMessage name="name" />
+              <Field
+                as={TextField}
+                sx={{ mt: 3 }}
+                id="outlined-basic"
+                name="email"
+                label="Email"
+                variant="outlined"
+                placeholder="Enter email"
+                // type="email"
+                fullWidth
+              />
+              <ErrorMessage name="email" />
+              {/* Radio */}
 
-          <TextField
-            sx={{ mt: 3 }}
-            id="outlined-basic"
-            label="Phone Number"
-            variant="outlined"
-            type="tel"
-            placeholder="Enter phone number"
-            fullWidth
-            required
-          />
-          <TextField
-            sx={{ mt: 3 }}
-            id="outlined-basic"
-            label="Password"
-            variant="outlined"
-            placeholder="Enter password"
-            fullWidth
-            required
-          />
-          <TextField
-            sx={{ mt: 3 }}
-            id="outlined-basic"
-            label="Confirm Password"
-            variant="outlined"
-            placeholder="Confirm password"
-            fullWidth
-            required
-          />
-          <FormControlLabel
-            required
-            control={<Checkbox />}
-            label="I accept the terms and conditions."
-          />
+              <FormControl style={{ marginTop: '8px' }}>
+                <FormLabel id="demo-radio-buttons-group-label">
+                  Gender
+                </FormLabel>
+                <Field
+                  as={RadioGroup}
+                  aria-labelledby="demo-radio-buttons-group-label"
+                  defaultValue="female"
+                  name="gender"
+                  style={{ display: 'initial' }}
+                >
+                  <FormControlLabel
+                    value="female"
+                    control={<Radio />}
+                    label="Female"
+                  />
+                  <FormControlLabel
+                    value="male"
+                    control={<Radio />}
+                    label="Male"
+                  />
+                </Field>
+              </FormControl>
 
-          <Button type="submit" variant="contained" color="primary">
-            SIGN UP
-          </Button>
-        </form>
+              <Field
+                as={TextField}
+                sx={{ mt: 3 }}
+                id="outlined-basic"
+                label="Phone Number"
+                name="phoneNumber"
+                variant="outlined"
+                type="tel"
+                placeholder="Enter phone number"
+                fullWidth
+              />
+              <Field
+                as={TextField}
+                sx={{ mt: 3 }}
+                id="outlined-basic"
+                name="password"
+                label="Password"
+                variant="outlined"
+                placeholder="Enter password"
+                fullWidth
+              />
+              <Field
+                as={TextField}
+                sx={{ mt: 3 }}
+                id="outlined-basic"
+                name="confirmPassword"
+                label="Confirm Password"
+                variant="outlined"
+                placeholder="Confirm password"
+                fullWidth
+              />
+              <FormControlLabel
+                control={<Field as={Checkbox} name="termAndConditions" />}
+                label="I accept the terms and conditions."
+              />
+
+              <Button type="submit" variant="contained" color="primary">
+                SIGN UP
+              </Button>
+            </Form>
+          )}
+        </Formik>
       </Paper>
     </Grid>
   );

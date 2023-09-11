@@ -25,7 +25,6 @@ const SignInSide = ({ handleChange }) => {
     minHeight: '50vh',
     width: 320,
     margin: '0 auto',
-    boxShadow: '0px 1px 14px -4px rgba(255,255,255,0.75)',
   };
   const avatarStyle = { backgroundColor: '#1bbd7e', marginBottom: '16px' };
 
@@ -49,16 +48,18 @@ const SignInSide = ({ handleChange }) => {
             </Avatar>
             <h2>Sign in</h2>
           </Grid>
-          <TextField
-            sx={{ mt: 3 }}
-            id="outlined-basic"
-            label="Login"
-            variant="outlined"
-            placeholder="Enter username"
-            fullWidth
-            required
-          />
+
           <form>
+            <TextField
+              sx={{ mt: 3 }}
+              id="outlined-basic"
+              label="Login"
+              variant="outlined"
+              placeholder="Enter username"
+              type="email"
+              fullWidth
+              required
+            />
             <FormControl
               sx={{ mt: 2, width: '100%' }}
               variant="outlined"
