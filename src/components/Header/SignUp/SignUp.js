@@ -18,9 +18,9 @@ import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOu
 const SignUp = () => {
   const paperStyle = {
     padding: '20px',
-    minHeight: '70vh',
+    minHeight: '72vh',
     width: 320,
-    margin: '20px auto',
+    margin: '0 auto',
     boxShadow: '0px 1px 14px -4px rgba(255,255,255,0.75)',
   };
 
@@ -28,7 +28,7 @@ const SignUp = () => {
 
   return (
     <Grid>
-      <Paper elevation={10} style={paperStyle} sx={{ fontSize: 16 }}>
+      <Paper style={paperStyle} sx={{ fontSize: 16 }}>
         <Grid align="center">
           <Avatar style={avatarStyle}>
             <AddCircleOutlineOutlinedIcon />
@@ -45,6 +45,7 @@ const SignUp = () => {
             id="outlined-basic"
             label="Name"
             variant="outlined"
+            type="text"
             placeholder="Enter name"
             fullWidth
             required
@@ -55,6 +56,7 @@ const SignUp = () => {
             label="Email"
             variant="outlined"
             placeholder="Enter email"
+            type="email"
             fullWidth
             required
           />
@@ -82,6 +84,7 @@ const SignUp = () => {
             id="outlined-basic"
             label="Phone Number"
             variant="outlined"
+            type="tel"
             placeholder="Enter phone number"
             fullWidth
             required

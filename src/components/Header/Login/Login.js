@@ -19,12 +19,12 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
-const SignInSide = () => {
+const SignInSide = ({ handleChange }) => {
   const paperStyle = {
     padding: 20,
-    height: '70vh',
+    minHeight: '50vh',
     width: 320,
-    margin: '20px auto',
+    margin: '0 auto',
     boxShadow: '0px 1px 14px -4px rgba(255,255,255,0.75)',
   };
   const avatarStyle = { backgroundColor: '#1bbd7e', marginBottom: '16px' };
@@ -40,9 +40,9 @@ const SignInSide = () => {
   };
 
   return (
-    <div>
+    <>
       <Grid>
-        <Paper elevation={10} style={paperStyle}>
+        <Paper style={paperStyle}>
           <Grid align="center">
             <Avatar style={avatarStyle}>
               <LockOutlinedIcon />
@@ -58,45 +58,47 @@ const SignInSide = () => {
             fullWidth
             required
           />
-          <FormControl
-            sx={{ mt: 2, width: '100%' }}
-            variant="outlined"
-            required
-          >
-            <InputLabel htmlFor="outlined-adornment-password">
-              Password
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showPassword ? 'text' : 'password'}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              label="Password"
+          <form>
+            <FormControl
+              sx={{ mt: 2, width: '100%' }}
+              variant="outlined"
+              required
+            >
+              <InputLabel htmlFor="outlined-adornment-password">
+                Password
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-password"
+                type={showPassword ? 'text' : 'password'}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Password"
+              />
+            </FormControl>
+            <FormControlLabel
+              control={<Checkbox defaultChecked />}
+              label="Remember me"
             />
-          </FormControl>
-          <FormControlLabel
-            control={<Checkbox defaultChecked />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            color="primary"
-            fullWidth
-            variant="contained"
-            style={btnstyle}
-          >
-            Sign in
-          </Button>
+            <Button
+              type="submit"
+              color="primary"
+              fullWidth
+              variant="contained"
+              style={btnstyle}
+            >
+              Sign in
+            </Button>
+          </form>
           <Typography variant="body2">
             <Link
               component="button"
@@ -108,23 +110,20 @@ const SignInSide = () => {
               Forgot password ?
             </Link>
           </Typography>
-          <div>
-            <Typography variant="body2" sx={{ mr: 1, d: 'inline' }}>
-              Do you have an account ?
-            </Typography>
-            <Link
-              component="button"
-              variant="body2"
-              onClick={() => {
-                console.info("I'm a button.");
-              }}
-            >
-              Sign Up
-            </Link>
-          </div>
+
+          <Typography variant="body2" sx={{ mr: 1, d: 'inline' }}>
+            Do you have an account ?
+          </Typography>
+          <Link
+            component="button"
+            variant="body2"
+            onClick={() => handleChange('event', 1)}
+          >
+            Sign Up
+          </Link>
         </Paper>
       </Grid>
-    </div>
+    </>
   );
 };
 
