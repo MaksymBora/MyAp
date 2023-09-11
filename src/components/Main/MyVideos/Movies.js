@@ -23,9 +23,6 @@ export const MyVideos = () => {
 
   return (
     <StyledVideosWrapper>
-      <Link>
-        <HomeIcon />
-      </Link>
       <VideoList movies={movies} />
     </StyledVideosWrapper>
   );
