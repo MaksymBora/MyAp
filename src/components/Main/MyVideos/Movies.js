@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import HomeIcon from '@mui/icons-material/Home';
-import { Link } from 'react-router-dom';
+
 import { VideoList } from './MoviesList/MoviesList';
 import { StyledVideosWrapper } from './Movies.styled';
 const { getMovies } = require('services/Movies-API');
