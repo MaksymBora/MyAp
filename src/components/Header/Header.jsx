@@ -4,6 +4,7 @@ import { usePosition } from './GetGeoPsn';
 import { StyledHeaderWrapper } from './Header.styled';
 import { Quotes } from 'components/Header/Quotes/Quotes';
 import { Link } from 'react-router-dom';
+import { FiLogIn, FiHome } from "react-icons/fi";
 
 const { useState, useEffect } = require('react');
 
@@ -71,10 +72,12 @@ export const Header = () => {
 
   return (
     <StyledHeaderWrapper>
-      {/* {!position ? <p>Loading...</p> : <WeatherCard items={weatherProps} />} */ }
       <WeatherCard items={ weatherProps } psn={ position} />
       <Quotes />
-      <Link to="login">Log In</Link>
+      <div>
+        <Link to="/"><FiHome size={ 24 } color='#fff' style={ {marginRight: '10px'}} /></Link>
+        <Link to="login"><FiLogIn size={24} color='#fff'/></Link>
+      </div>
     </StyledHeaderWrapper>
   );
 };
